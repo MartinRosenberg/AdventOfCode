@@ -4,7 +4,7 @@ package year2022.day1
 import scala.io.Source
 import scala.util.Using
 
-object Part2 extends App {
+object Day1 extends App {
   Using(Source.fromResource("year2022/day1/input.txt")) { resource =>
     val lines = resource.getLines().map(_.trim)
 
@@ -13,6 +13,9 @@ object Part2 extends App {
       elfTotals :+= lines.takeWhile(!_.isBlank).map(_.toInt).sum
     }
 
-    elfTotals.sortWith(_ > _).take(3).sum
-  }.foreach(println)
+    elfTotals.sortWith(_ > _)
+  }.foreach { sorted =>
+    println(s"Part 1: ${sorted.head}")
+    println(s"Part 2: ${sorted.take(3).sum}")
+  }
 }
