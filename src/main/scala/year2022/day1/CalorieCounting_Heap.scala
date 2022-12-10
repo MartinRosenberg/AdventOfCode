@@ -7,7 +7,7 @@ import scala.util.Using
 
 object CalorieCounting_Heap extends App {
   Using(Source.fromResource("year2022/day1/input")) { resource =>
-    val lines = resource.getLines().map(_.trim)
+    val lines = resource.getLines().map(_.trim).filterNot(_.isBlank)
 
     val elfTotals = mutable.PriorityQueue.empty[Int]
     while (lines.nonEmpty) {

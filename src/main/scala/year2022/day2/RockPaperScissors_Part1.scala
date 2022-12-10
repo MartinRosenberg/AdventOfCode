@@ -21,6 +21,7 @@ object RockPaperScissors_Part1 extends App {
     _.getLines()
       .toVector.view
       .map(_.trim)
+      .filterNot(_.isBlank)
       .map(_.split("\\s"))
       .map(_.map(getMovePoints))
       .foldLeft(0) { case (total, Array(opp, self)) =>
