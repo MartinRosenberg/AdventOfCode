@@ -17,7 +17,7 @@ object RockPaperScissors_Part1 extends App {
     case 2 | -1 => 0
   }
 
-  Using(Source.fromResource("year2022/day2/input.txt"))(
+  Using(Source.fromResource("year2022/day2/input"))(
     _.getLines()
       .toVector.view
       .map(_.trim)
