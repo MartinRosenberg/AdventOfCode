@@ -1,11 +1,13 @@
 package com.martinbrosenberg.adventofcode
 package year2022.day02
 
+import year2022.AdventOfCodeDay
+
 import scala.io.Source
 import scala.util.Using
 
-object RockPaperScissors extends App {
-  val lines = Using.resource(Source.fromResource("year2022/day02/input"))(_.getLines().toVector)
+object RockPaperScissors extends AdventOfCodeDay(2) {
+  val lines = Using.resource(Source.fromResource(inputUri))(_.getLines().toVector)
 
   // Part 1
 

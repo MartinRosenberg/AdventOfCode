@@ -1,15 +1,17 @@
 package com.martinbrosenberg.adventofcode
 package year2022.day01
 
+import year2022.AdventOfCodeDay
+
 import scala.io.Source
 import scala.util.Using
 
-object CalorieCounting extends App {
-  val sortedTotals = Using.resource(Source.fromResource("year2022/day01/input")) { resource =>
+object CalorieCounting extends AdventOfCodeDay(1) {
+  private val sortedTotals = Using.resource(Source.fromResource(inputUri)) { resource =>
     val lines = resource.getLines()
 
     var elfTotals = Vector.empty[Int]
-    while (lines.nonEmpty) {
+    while (lines.hasNext) {
       elfTotals :+= lines
         .takeWhile(!_.isBlank)
         .map(_.toInt)

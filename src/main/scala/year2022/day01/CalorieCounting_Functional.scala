@@ -1,11 +1,13 @@
 package com.martinbrosenberg.adventofcode
 package year2022.day01
 
+import year2022.AdventOfCodeDay
+
 import scala.io.Source
 import scala.util.Using
 
-object CalorieCounting_Functional extends App {
-  val sortedTotals = Using.resource(Source.fromResource("year2022/day01/input"))(_
+object CalorieCounting_Functional extends AdventOfCodeDay(1) {
+  private val sortedTotals = Using.resource(Source.fromResource(inputUri))(_
     .mkString
     .split("\n\n")
     .map(_

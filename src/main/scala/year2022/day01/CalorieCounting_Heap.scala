@@ -1,16 +1,18 @@
 package com.martinbrosenberg.adventofcode
 package year2022.day01
 
+import year2022.AdventOfCodeDay
+
 import scala.collection.mutable
 import scala.io.Source
 import scala.util.Using
 
-object CalorieCounting_Heap extends App {
-  val top3 = Using.resource(Source.fromResource("year2022/day01/input")) { resource =>
+object CalorieCounting_Heap extends AdventOfCodeDay(1) {
+  private val top3 = Using.resource(Source.fromResource(inputUri)) { resource =>
     val lines = resource.getLines()
 
     val elfTotals = mutable.PriorityQueue.empty[Int]
-    while (lines.nonEmpty) {
+    while (lines.hasNext) {
       elfTotals += lines
         .takeWhile(!_.isBlank)
         .map(_.toInt)

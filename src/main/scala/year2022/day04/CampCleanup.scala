@@ -1,11 +1,13 @@
 package com.martinbrosenberg.adventofcode
 package year2022.day04
 
+import year2022.AdventOfCodeDay
+
 import scala.io.Source
 import scala.util.Using
 
-object CampCleanup extends App {
-  val data = Using.resource(Source.fromResource("year2022/day04/input"))(_
+object CampCleanup extends AdventOfCodeDay(4) {
+  val data = Using.resource(Source.fromResource(inputUri))(_
     .getLines()
     .toVector
     .map(_.split("[-,]").map(_.toInt))

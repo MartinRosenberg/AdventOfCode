@@ -1,12 +1,14 @@
 package com.martinbrosenberg.adventofcode
 package year2022.day05
 
+import year2022.AdventOfCodeDay
+
 import scala.collection.mutable
 import scala.io.Source
 import scala.util.Using
 
-object SupplyStacks extends App {
-  val lines = Using.resource(Source.fromResource("year2022/day05/input"))(_.getLines().toVector)
+object SupplyStacks extends AdventOfCodeDay(5) {
+  val lines = Using.resource(Source.fromResource(inputUri))(_.getLines().toVector)
   val (stackLines, moveLines) = lines.span(_.nonEmpty)
 
   val stackRows = stackLines.init.map(_
