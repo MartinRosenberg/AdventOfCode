@@ -30,6 +30,7 @@ fabric.properties
 
 *.class
 *.log
+*.sc
 
 ### SBT
 # Simple Build Tool
