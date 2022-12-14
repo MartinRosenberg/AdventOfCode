@@ -1,8 +1,7 @@
 package com.martinbrosenberg.adventofcode
 package year2022.day2
 
-import scala.io.Source
-import scala.util.Using
+import year2022.UsingLines
 
 object RockPaperScissors_Part1 extends App {
   def getMovePoints(letter: String): Int = letter match {
@@ -17,15 +16,11 @@ object RockPaperScissors_Part1 extends App {
     case 2 | -1 => 0
   }
 
-  Using(Source.fromResource("year2022/day2/input"))(
-    _.getLines()
-      .toVector.view
-      .map(_.trim)
-      .filterNot(_.isBlank)
-      .map(_.split("\\s"))
-      .map(_.map(getMovePoints))
-      .foldLeft(0) { case (total, Array(opp, self)) =>
-        total + self + getOutcomePoints(opp, self)
-      }
+  UsingLines("year2022/day2/input").map(_
+    .map(_.split(" "))
+    .map(_.map(getMovePoints))
+    .foldLeft(0) { case (total, Array(opp, self)) =>
+      total + self + getOutcomePoints(opp, self)
+    }
   ).foreach(println)
 }
