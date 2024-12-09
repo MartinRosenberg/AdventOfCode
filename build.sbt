@@ -1,3 +1,5 @@
+Global / excludeLintKeys += idePackagePrefix
+
 lazy val root = (project in file("."))
   .settings(
     organization     := "com.martinbrosenberg",
