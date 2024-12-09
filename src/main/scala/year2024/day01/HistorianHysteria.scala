@@ -1,9 +1,12 @@
 package com.martinbrosenberg.adventofcode
 package year2024.day01
 
+import java.io.FileNotFoundException
+
 object HistorianHysteria {
 
   // TODO: genericize this
+  @throws[FileNotFoundException]
   private def readLines(): Seq[String] =
     io.Source.fromResource("year2024/day01.wsv").getLines().toSeq
 
