@@ -7,10 +7,9 @@ import scala.io.Source
 import scala.util.Using
 
 object CampCleanup extends AdventOfCodeDay(4) {
-  val data = Using.resource(Source.fromResource(inputUri))(_
-    .getLines()
-    .toVector
-    .map(_.split("[-,]").map(_.toInt))
+  val data = Using.resource(Source.fromResource(inputUri))(
+    _.getLines().toVector
+      .map(_.split("[-,]").map(_.toInt))
   )
 
   val fullyOverlappingRanges = data.count { case Array(aMin, aMax, bMin, bMax) =>

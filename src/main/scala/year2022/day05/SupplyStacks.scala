@@ -8,12 +8,12 @@ import scala.io.Source
 import scala.util.Using
 
 object SupplyStacks extends AdventOfCodeDay(5) {
-  val lines = Using.resource(Source.fromResource(inputUri))(_.getLines().toVector)
+  val lines                   = Using.resource(Source.fromResource(inputUri))(_.getLines().toVector)
   val (stackLines, moveLines) = lines.span(_.nonEmpty)
 
-  val stackRows = stackLines.init.map(_
-    .zipWithIndex
-    .collect { case (c, i) if i % 4 == 1 => c }
+  val stackRows = stackLines.init.map(
+    _.zipWithIndex
+      .collect { case (c, i) if i % 4 == 1 => c }
   )
   val nStacks = stackRows.map(_.length).max
   val stacksImmutable = stackRows
@@ -38,7 +38,7 @@ object SupplyStacks extends AdventOfCodeDay(5) {
   println(s"Part 1: $part1")
 
   val part2 = {
-    val stacks = stacksImmutable.map(_.to(mutable.Stack))
+    val stacks    = stacksImmutable.map(_.to(mutable.Stack))
     val tempStack = mutable.Stack.empty[Char]
 
     moves.foreach { case (range, a, b) =>

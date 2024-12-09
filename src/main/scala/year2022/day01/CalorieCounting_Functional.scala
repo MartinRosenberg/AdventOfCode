@@ -7,15 +7,15 @@ import scala.io.Source
 import scala.util.Using
 
 object CalorieCounting_Functional extends AdventOfCodeDay(1) {
-  private val sortedTotals = Using.resource(Source.fromResource(inputUri))(_
-    .mkString
-    .split("\n\n")
-    .map(_
-      .split("\n")
-      .map(_.toInt)
-      .sum
-    )
-    .sorted(Ordering.Int.reverse)
+  private val sortedTotals = Using.resource(Source.fromResource(inputUri))(
+    _.mkString
+      .split("\n\n")
+      .map(
+        _.split("\n")
+          .map(_.toInt)
+          .sum
+      )
+      .sorted(Ordering.Int.reverse)
   )
 
   println(s"Part 1: ${sortedTotals.head}")

@@ -18,7 +18,7 @@ object RucksackReorganization extends AdventOfCodeDay(3) {
     .map(getPriority)
     .sum
   println(s"Part 1: $part1")
-  
+
   val part2 = lines
     .map(_.toSet)
     .grouped(3)

@@ -19,7 +19,7 @@ object RockPaperScissors extends AdventOfCodeDay(2) {
 
   def getOutcomePoints(opp: Int, self: Int): Int = self - opp match {
     case 1 | -2 => 6
-    case 0 => 3
+    case 0      => 3
     case 2 | -1 => 0
   }
 
@@ -35,9 +35,15 @@ object RockPaperScissors extends AdventOfCodeDay(2) {
   // Part 2
 
   val Points = Map(
-    "B X" -> 1, "C X" -> 2, "A X" -> 3,
-    "A Y" -> 4, "B Y" -> 5, "C Y" -> 6,
-    "C Z" -> 7, "A Z" -> 8, "B Z" -> 9,
+    "B X" -> 1,
+    "C X" -> 2,
+    "A X" -> 3,
+    "A Y" -> 4,
+    "B Y" -> 5,
+    "C Y" -> 6,
+    "C Z" -> 7,
+    "A Z" -> 8,
+    "B Z" -> 9
   )
 
   val xyzAsResolutions = lines
