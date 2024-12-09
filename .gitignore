@@ -2,7 +2,7 @@
 .idea/
 
 ### Advent of Code
-src/**/resources/**/input**
+src/main/resources/year2024
 
 
 # Below was created by gitignore.io and edited for readability
